@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: '16'
       - name: Installing Dependencies
-        run: npm ci
+        run: npm ci --force
       - name: Building Application
         run: npm run build:prod
       - name: Packaging Application
