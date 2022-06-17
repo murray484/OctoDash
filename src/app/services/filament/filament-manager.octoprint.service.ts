@@ -50,14 +50,12 @@ export class FilamentManagerOctoprintService implements FilamentPluginService {
 
   private convertFilamentManagerSpool(spool: FilamentManagerSpool): FilamentSpool {
     colorRegexp.lastIndex = 0;
-    const match = colorRegexp.exec(spool.name);
+    // const match = colorRegexp.exec(spool.name);
     return {
-      color: match ? match[1] : '#f5f6fa',
+      color: spool.color,
       density: spool.profile.density,
       diameter: spool.profile.diameter,
-      displayName: match
-        ? `${spool.profile.vendor} - ${spool.name.replace(match[0], '')}`
-        : `${spool.profile.vendor} - ${spool.name}`,
+      displayName: `${spool.name} (${spool.profile.material} - ${spool.description})`,
       id: spool.id,
       material: spool.profile.material,
       name: spool.name,

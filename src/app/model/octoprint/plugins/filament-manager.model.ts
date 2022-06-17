@@ -28,6 +28,7 @@ export interface FilamentManagerSpool {
   id: number;
   name: string;
   displayName?: string;
+  description?: string;
   color?: string;
   profile: FilamentManagerProfile;
   temp_offset: number;

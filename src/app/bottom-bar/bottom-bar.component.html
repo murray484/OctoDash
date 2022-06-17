@@ -1,6 +1,7 @@
 <table class="bottom-bar">
   <tr>
-    <td class="bottom-bar__printer-name">{{ getPrinterName() }}</td>
+    <td class="bottom-bar__printer-name" *ngIf="currentSpool; else elseBlock">{{ currentSpool.displayName }}</td>
+    <ng-template #elseBlock>{{ getPrinterName() }}</ng-template>
     <td class="bottom-bar__enclosure-temperature" *ngIf="enclosureTemperature">
       <img src="assets/thermometer.svg" class="bottom-bar__enclosure-temperature-icon" />
       {{ enclosureTemperature.temperature }}{{ enclosureTemperature.unit }}
